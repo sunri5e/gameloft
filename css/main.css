@@ -1,0 +1,10 @@
+@import url(https://fonts.googleapis.com/css?family=PT+Sans+Narrow|Roboto+Condensed);
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url(../fonts/HelveticaNeue.ttf);
+  font-weight: 400; }
+
+@font-face {
+  font-family: 'Helvetica Neue Bold';
+  src: url(../fonts/HelveticaNeue-CondensedBold.ttf), url(../fonts/HelveticaNeue-CondensedBold.eot), url(../fonts/HelveticaNeue-CondensedBold.svg), url(../fonts/HelveticaNeue-CondensedBold.woff);
+  font-weight: 700; }
