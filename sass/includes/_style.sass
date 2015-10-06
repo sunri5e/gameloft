@@ -15,6 +15,9 @@
   src: url(../fonts/DINPro-Bold.otf)
   font-weight: 700
 
+a:focus
+  text-decoration: none
+
 body
   font-family: 'DIN Pro'
   color: #000
@@ -86,6 +89,31 @@ h3
     & + p
       margin-top: 10px
 
+.form-control
+  border-radius: 0
+  border-color: #000
+textarea.form-control
+  resize: none
+select.form-control
+  appearance: none
+
+label
+  text-transform: uppercase
+  line-height: 1.5
+  font-weight: 400
+
+.gl-prime
+  width: 100%
+  background: #feb400
+  color: #000
+  font-size: 24px
+  text-transform: uppercase
+  text-align: center
+  border-radius: 0
+  border: none
+  font-weight: 500
+  &:hover
+    background: #feb400
 /* Header */
 .gl-topbar
   padding: 10px 0
@@ -195,6 +223,11 @@ h3
     line-height: 0.866
     text-shadow: 0 0 30px black, 2px 2px 0 black, 0 0 30px black
     letter-spacing: -1.5px
+    a
+      color: #fff
+      &:hover
+        color: #fff
+        text-decoration: none
     b
       font-size: 64px
       text-transform: uppercase
@@ -211,6 +244,10 @@ h3
         z-index: -1
         position: absolute
         background: rgba(0,0,0,0.75)
+        transition: right .2s
+      &:hover
+        &:before
+          right: -30px
   .gl-slide-title
     height: 80px
     width: 100%
@@ -278,6 +315,20 @@ h3
     background: none
     border: none
     box-shadow: none
+    .bx-wrapper .bx-controls-direction a
+      width: 22px
+      height: 32px
+      margin-top: -16px
+    .bx-prev
+      left: -40px  
+      background: url(../img/slider-navs-small.png) no-repeat 0 0
+      &:hover
+        background: url(../img/slider-navs-small.png) no-repeat 0 0
+    .bx-next
+      right: -40px
+      background: url(../img/slider-navs-small.png) no-repeat -22px 0
+      &:hover
+        background: url(../img/slider-navs-small.png) no-repeat -22px 0
   .panel-heading
     background: #fff
     padding: 0
@@ -292,9 +343,31 @@ h3
       border: none
       left: 0
       box-shadow: none
+      padding-bottom: 35px
+      height: 275px !important
+      margin-bottom: -35px
 .gl-vacancy-link
   display: table
   width: 100%
+  &.collapsed
+    .gl-vacancy-arrow
+      border-top: 0px solid #fff
+      bottom: 40px
+      z-index: 2
+      &:before,
+      &:after
+        width: 120px
+      &:before
+        left: 0
+        transform: rotate(0)
+      &:after
+        right: 0
+        transform: rotate(0)
+    .gl-vacancy-tip
+      opacity: 1
+    .gl-vacancy-title
+      padding-bottom: 40px
+      padding-top: 40px
 .gl-vacancy-lable
   position: absolute
   top: 0
@@ -315,6 +388,9 @@ h3
   display: table-cell
   height: 235px
   vertical-align: middle
+  padding-bottom: 0
+  padding-top: 40px
+  transition: padding .3s
   img
     display: inline
 .gl-vacancy-tip
@@ -327,27 +403,35 @@ h3
   line-height: 40px
   text-align: center
   text-transform: uppercase
+  opacity: 0
+  transition: opacity .3s
 .gl-vacancy-arrow
   position: absolute
   display: inline-block
   width: 100%
-  border-top: 1px solid #fff
-  border-left: 1px solid transparent
-  border-right: 1px solid transparent
+  border-top: 35px solid #fff
+  border-left: 120px solid transparent
+  border-right: 120px solid transparent
   left: 0
-  bottom: 40px
+  bottom: -35px
+  transition: bottom .3s, border-top .3s
   &:before,
   &:after
     display: block
     content: ''
-    width: 50%
     position: absolute
     bottom: 0
     border-bottom: 1px solid #000
+    width: 125px
+    transition: transform .3s .05s, width .3s .05s
   &:before
     left: 0
+    transform-origin: 0
+    transform: rotate(-16deg)
   &:after
     right: 0
+    transform-origin: center right
+    transform: rotate(16deg)
 .gl-more-vacancies
   display: block
   border-top: 1px solid #000
@@ -357,7 +441,6 @@ h3
   color: rgb(0, 0, 0)
   line-height: 40px
   background: #fff
-  transition: background .3s
   &:hover
     text-decoration: none
     color: #000
@@ -371,6 +454,49 @@ h3
   background-image: linear-gradient(#feb400 0%, #fe7e00 100%)
 /* end Games */
 
+.gl-post-popup
+  position: fixed
+  background: rgba(0,0,0,0.8)
+  width: 100%
+  height: 100%
+  top: 0
+  left: 0
+  z-index: 9999
+  display: none
+  .content
+    position: absolute
+    width: 90%
+    max-width: 1000px
+    top: 10%
+    bottom: 10%
+    left: 50%
+    transform: translate(-50%,0)
+    background: rgba(255,255,255,0.95)
+    padding: 30px
+  .pop-up-close 
+    width: 30px
+    height: 30px
+    position: absolute
+    right: 10px
+    top: 10px
+    cursor: pointer
+    &:after,
+    &:before
+      display: bock
+      content: ''
+      width: 100%
+      height: 1px
+      position: absolute
+      top: 50%
+      left: 0
+      background: #000
+    &:after
+      transform: rotate(45deg)
+    &:before
+      transform: rotate(-45deg)
+
+
+/* Footer */
 .gl-contacts-pic
   height: 540px
   background-size: cover
@@ -406,6 +532,7 @@ footer
       z-index: -1
       position: absolute
       background: #feb400
+/* end Footer */
 
 
 
